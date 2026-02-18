@@ -1,3 +1,7 @@
+// Table to display inputs and results
+let htmlTable = "<table border='1'>";
+htmlTable += "<tr><th>x</th><th>Operator</th><th>y</th><th>Result</th></tr>";
+
 // User Input Handling
 let x = prompt("Enter the first number: ");
 
@@ -23,6 +27,11 @@ while (x !== null) {
         else if (operator === "/") result = x / y;
         else if (operator === "*") result = x * y;
     }
-    alert("Result: " + result);
+    // Add results to table
+    htmlTable += `<tr><td>${x}</td><td>${operator}</td><td>${y}</td><td>${result}</td></tr>`;
+
     x = prompt("Enter the first number: ");
 }
+// Close the table
+htmlTable += "</table>";
+document.write(htmlTable);
