@@ -2,6 +2,8 @@
 let htmlTable = "<table border='1'>";
 htmlTable += "<tr><th>x</th><th>Operator</th><th>y</th><th>Result</th></tr>";
 
+let validResults = [];
+
 // User Input Handling
 let x = prompt("Enter the first number: ");
 
@@ -26,12 +28,24 @@ while (x !== null) {
         else if (operator === "%") result = x % y;
         else if (operator === "/") result = x / y;
         else if (operator === "*") result = x * y;
+
+        // Store valid results
+        if (typeof result === "number") {
+            validResults.push(result);
+        }
     }
     // Add results to table
     htmlTable += `<tr><td>${x}</td><td>${operator}</td><td>${y}</td><td>${result}</td></tr>`;
 
     x = prompt("Enter the first number: ");
 }
+let min = Math.min(...validResults);
+let max = Math.max(...validResults);
+let avg = validResults.reduce((a, b) => a + b, 0) / validResults.length;
+let total = validResults.reduce((a, b) => a + b, 0);
+
+alert(`Minimum: ${min}\nMaximum: ${max}\nAverage: ${avg}\nTotal: ${total}`);
+
 // Close the table
 htmlTable += "</table>";
 document.write(htmlTable);
