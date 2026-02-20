@@ -1,5 +1,28 @@
+// CSS Styling for tables
+document.write(`
+<style>
+    table {
+        border-collapse: collapse;
+        margin: 20px;
+    }
+    th {
+        background-color: orange;
+        color: white;
+        padding: 8px 16px;
+    }
+    td {
+        text-align: center;
+        padding: 8px 16px;
+        background-color: lightgray;
+    }
+    tr:nth-child(even) td {
+        background-color: #ffecd1;
+    }
+</style>
+`);
+
 // Table to display inputs and results
-let resultTable = "<table border='1'>";
+let resultTable = "<table border='1'>"; 
 resultTable += "<tr><th>x</th><th>Operator</th><th>y</th><th>Result</th></tr>"; // X, Operator, Y, Result Headers
 
 let validResults = [];
