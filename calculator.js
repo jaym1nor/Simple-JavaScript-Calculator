@@ -30,7 +30,7 @@ while (x !== null) {
         else if (operator === "*") result = x * y;
 
         // Store valid results
-        if (typeof result === "number") {
+        if (typeof result === "number" && isFinite(result)) {
             validResults.push(result);
         }
     }
@@ -44,7 +44,7 @@ let max = Math.max(...validResults);
 let avg = validResults.reduce((a, b) => a + b, 0) / validResults.length;
 let total = validResults.reduce((a, b) => a + b, 0);
 
-alert(`Minimum: ${min}\nMaximum: ${max}\nAverage: ${avg}\nTotal: ${total}`);
+// alert(`Minimum: ${min}\nMaximum: ${max}\nAverage: ${avg}\nTotal: ${total}`);
 
 // Close the table
 htmlTable += "</table>";
