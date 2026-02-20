@@ -1,6 +1,6 @@
 // Table to display inputs and results
-let htmlTable = "<table border='1'>";
-htmlTable += "<tr><th>x</th><th>Operator</th><th>y</th><th>Result</th></tr>";
+let resultTable = "<table border='1'>";
+resultTable += "<tr><th>x</th><th>Operator</th><th>y</th><th>Result</th></tr>"; // X, Operator, Y, Result Headers
 
 let validResults = [];
 
@@ -35,17 +35,22 @@ while (x !== null) {
         }
     }
     // Add results to table
-    htmlTable += `<tr><td>${x}</td><td>${operator}</td><td>${y}</td><td>${result}</td></tr>`;
+    resultTable += `<tr><td>${x}</td><td>${operator}</td><td>${y}</td><td>${result}</td></tr>`;
 
     x = prompt("Enter the first number: ");
 }
+// Close the input table
+resultTable += "</table>";
+document.write(resultTable);
+
+// Calculate and display summary statistics
 let min = Math.min(...validResults);
 let max = Math.max(...validResults);
 let avg = validResults.reduce((a, b) => a + b, 0) / validResults.length;
 let total = validResults.reduce((a, b) => a + b, 0);
 
-// alert(`Minimum: ${min}\nMaximum: ${max}\nAverage: ${avg}\nTotal: ${total}`);
-
-// Close the table
-htmlTable += "</table>";
-document.write(htmlTable);
+let summaryTable = "<table border='1'>";
+summaryTable += "<tr><th>Min</th><th>Max</th><th>Average</th><th>Total</th></tr>"; // Min, Max, Average, Total Headers
+summaryTable += `<tr><td>${min}</td><td>${max}</td><td>${avg}</td><td>${total}</td></tr>`;
+summaryTable += "</table>";
+document.write(summaryTable);
